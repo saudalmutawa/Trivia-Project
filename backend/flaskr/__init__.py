@@ -152,8 +152,8 @@ def create_app(test_config=None):
   @app.route('/quizzes',methods=['POST'])
   def quiz():
     form = request.get_json()
-    quiz_category=form.get('quiz_category',None)
-    previous_question=form.get('previous_questions',None)
+    quiz_category=form.get('quiz_category')
+    previous_question=form.get('previous_questions')
 
     if quiz_category['id'] == 0:
       questions = Question.query.order_by(Question.id).all()
@@ -203,7 +203,13 @@ def create_app(test_config=None):
       "error": 422,
       "message": "unprocessable"
       }), 422
-
+  @app.errorhandler(400)
+  def unprocessable(error):
+    return jsonify({
+      "success": False, 
+      "error": 400,
+      "message": "bad request"
+      }), 400
   
   
   return app
