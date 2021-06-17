@@ -190,7 +190,7 @@ GET /questions
   "total_questions": 18
 }
 ```
-DELETE //questions/{question_id}
+DELETE /questions/{question_id}
 * General:
   * Takes a question id and deletes the question, then returns a dictionary of deleted question id, success value, list of questions object paginated 10 per page, total questions and the current category
   * ` curl http://127.0.0.1:5000/questions/6 -X DELETE ` Sample:
@@ -406,4 +406,21 @@ GET /categories/{category_id}/questions
   "total_questions": 3
 }
 ```
-
+POST /quizzes
+* General:
+  * Takes a quiz category and previous questions list and returns a success value and random question object that's not in the list
+  * ` curl http:127.0.0.1:5000/quizzes -X POST -H "Content-Type:application/json" -d '{"quiz_category":2,"previous_questions":[]}' `
+```bash
+{
+      "answer": "Mona Lisa", 
+      "category": 2, 
+      "difficulty": 3, 
+      "id": 17, 
+      "question": "La Giaconda is better known as what?"
+    },
+```
+## Deployment N/A
+## Authors
+Saud Almutawa
+## Acknowledgements
+Udacity team and ME (:
