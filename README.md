@@ -409,7 +409,7 @@ GET /categories/{category_id}/questions
 POST /quizzes
 * General:
   * Takes a quiz category and previous questions list and returns a success value and random question object that's not in the list
-  * ` curl http:127.0.0.1:5000/quizzes -X POST -H "Content-Type:application/json" -d '{"quiz_category":2,"previous_questions":[]}' `
+  * ` curl http:127.0.0.1:5000/quizzes -X POST -H "Content-Type:application/json" -d '{"quiz_category":{"type":"art","id":2},"previous_questions":[]}' `
 ```bash
 {
       "answer": "Mona Lisa", 
