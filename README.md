@@ -190,4 +190,92 @@ GET /questions
   "total_questions": 18
 }
 ```
-   
+DELETE //questions/{question_id}
+* General:
+  * Takes a question id and deletes the question, then returns a dictionary of deleted question id, success value, list of questions object paginated 10 per page, total questions and the current category
+  * ` curl http://127.0.0.1:5000/questions/6 -X DELETE ` Sample:
+```bash
+{
+  "current_category": null,
+  "deleted": 6,
+  "questions": [
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "Uruguay",
+      "category": 6,
+      "difficulty": 4,
+      "id": 11,
+      "question": "Which country won the first ever soccer World Cup in 1930?"
+    },
+    {
+      "answer": "George Washington Carver",
+      "category": 4,
+      "difficulty": 2,
+      "id": 12,
+      "question": "Who invented Peanut Butter?"
+    },
+    {
+      "answer": "Lake Victoria",
+      "category": 3,
+      "difficulty": 2,
+      "id": 13,
+      "question": "What is the largest lake in Africa?"
+    },
+    {
+      "answer": "The Palace of Versailles",
+      "category": 3,
+      "difficulty": 3,
+      "id": 14,
+      "question": "In which royal palace would you find the Hall of Mirrors?"
+    },
+    {
+      "answer": "Agra",
+      "category": 3,
+      "difficulty": 2,
+      "id": 15,
+      "question": "The Taj Mahal is located in which Indian city?"
+    },
+    {
+      "answer": "Mona Lisa",
+      "category": 2,
+      "difficulty": 3,
+      "id": 17,
+      "question": "La Giaconda is better known as what?"
+    },
+    {
+      "answer": "One",
+      "category": 2,
+      "difficulty": 4,
+      "id": 18,
+      "question": "How many paintings did Van Gogh sell in his lifetime?"
+    },
+    {
+      "answer": "Jackson Pollock",
+      "category": 2,
+      "difficulty": 2,
+      "id": 19,
+      "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
+    },
+    {
+      "answer": "The Liver",
+      "category": 1,
+      "difficulty": 4,
+      "id": 20,
+      "question": "What is the heaviest organ in the human body?"
+    }
+  ],
+  "success": true,
+  "total_questions": 17
+}
+```
+POST /questions
+* General:
+  * Insert question object by taking  a question string, answer, difficulty (int) and category(int) and returns success value, total questions, current category and a list of questions object paginated 10 per page
+  * ` curl http://127.0.0.1:5000/questions -X POST -H 'Content-Type: application/json' -d '{"question":"Is this readme","answer":"Yes","difficulty":2,"category":2}'
+ 
